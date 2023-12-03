@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+source ./functions.sh
+
+sudo cat /etc/ssh/sshd_config | grep bch || cat >> $WARN <<SSHD
+[$0]:
+    MAKE USER LOGONS POSSIBLE
+    Edit /etc/ssh/sshd_config to make change:
+        PasswordAuthentication yes
+    Then
+        sudo systemctl restart sshd.service
+SSHD

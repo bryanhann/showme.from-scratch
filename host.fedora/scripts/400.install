@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-my.install git
-my.install tmux
-my.install python3
-my.install tmate

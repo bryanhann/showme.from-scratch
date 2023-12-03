@@ -1,2 +1,0 @@
-my.log EXECUTE: "$@"
-"$@" >> $MYLOG 2>> $MYLOG

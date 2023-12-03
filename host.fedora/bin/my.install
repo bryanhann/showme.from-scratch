@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-my.which -q ${1} || my.log installing ${1}
-my.which -q ${1} || sudo dnf -y install ${1} >> $MYLOG 2>> $MYLOG
-my.which -q ${1} || my.warn could not install ${1}
-my.which -q ${1} && my.note found ${1}

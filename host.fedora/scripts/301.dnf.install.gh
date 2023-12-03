@@ -1,3 +1,0 @@
-my.exec sudo dnf install  'dnf-command(config-manager)'
-my.exec sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-my.install gh

@@ -1,21 +1,15 @@
 #!/usr/bin/env bash
-
-main () {
-    export MYHOST=$PWD/host.$1
-    export PATH=${PATH}:${MYHOST}/bin
-    export PATH=${PATH}:${PWD}/bin
-    export MYLOG=/tmp/my.log.$(my.timestamp)
-    touch ${MYLOG}
-
-    for path in $(ls ${MYHOST}/scripts/[0-9]* | sort); do
-        export MYSCRIPT=${path##*/}
-        $path
-    done
-    echo "==============================================="
-    cat $MYLOG | grep "WARN\|NOTE\|EXEC"
-    echo 
-    echo LOG written to: $MYLOG
-}
-pushd $(dirname $0) > /dev/null
-main fedora
-
+pushd $(dirname $0)
+source ./functions.sh
+rm $WARN 2> /dev/null
+touch $WARN
+for path in $(ls $PWD/[0-9]*); do
+    $path
+done
+echo
+echo ======================================================
+cat $WARN
+exit
+$0.sshd
+$0.users
+$0.dnf

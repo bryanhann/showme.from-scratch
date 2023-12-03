@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+source ./functions.sh
+
+my.adduser () {
+    cat /etc/passwd | grep $1 && exit
+    sudo adduser ${1} --groups wheel,adm
+    sudo passwd ${1}
+}
+my.adduser super
