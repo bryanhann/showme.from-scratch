@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+############################################################
+# We want to allow users to ssh to this host via passwords.
+# This may require ediccing /etc/ssh/sshd_config.
+############################################################
+
+# THIS LINE MAY BE SYSTEM DEPENDANT:
+SSHD_CONFIG=/etc/ssh/sshd_config
+
+my.loglines <<HEREDOC
+. [${SSHD_CONFIG}] may require editing.
+. For user password login insure:
+.     PasswordAuthentication yes
+. Then
+.    sudo systemctl restart sshd.service
+HEREDOC

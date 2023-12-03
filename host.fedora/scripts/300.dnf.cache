@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+THIS=${0##*/}
+
+my.exec sudo dnf makecache --refresh
+my.log WARNING: problems with refreshing cache

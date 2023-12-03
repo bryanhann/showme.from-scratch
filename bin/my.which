@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+[ $1. == -q. ] && {
+    shift
+    which ${1} > /dev/null 2> /dev/null
+    exit $?
+}
+which ${1} 2> /dev/null
+exit $?
+
